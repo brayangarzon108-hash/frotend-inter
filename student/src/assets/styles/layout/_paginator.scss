@@ -1,0 +1,7 @@
+@import './../constants/colors';
+@import './../constants/fonts';
+
+.p-ripple.p-paginator-page.p-paginator-page-selected{
+    background-color: $color-yellow-alpha80 !important;
+    color: $color-black !important;
+}

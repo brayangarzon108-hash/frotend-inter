@@ -1,0 +1,51 @@
+@import './../constants/colors';
+@import './../constants/fonts';
+
+.title-module {
+  //font-size: $font-size-big;
+  font-weight: bold;
+  color: $color-black;
+  border-left: 8px solid $color-yellow;
+  margin-left: 4%;
+  letter-spacing: 0px;
+}
+
+.title-graph {
+  font-size: $font-size-normal;
+  font-weight: bold;
+  color: $color-black;
+  letter-spacing: 0px;
+}
+
+.label-form {
+  font-size: $font-size-short;
+  font-weight: bold;
+  color: $color-black;
+}
+.title-form {
+  font-size: $font-size-xlarge;
+  font-weight: 900;
+  color: $color-black;
+}
+
+.pi.pi-exclamation-circle {
+  color: $color-blue !important;
+}
+.message {
+  font-size: $font-size-small;
+  color: $color-white;
+  background-color: $color-red-alpha50;
+}
+.line {
+  height: 2px;
+  background-color: $color-yellow;
+  min-width: 100px; /* Longitud mínima de la línea */
+  width: 100px;
+  margin: auto 2px;
+}
+.label-subsection {
+  background: #58595b;
+  padding: 5px 8px;
+  border-radius: 0px 10px 10px 0px;
+  color: #f7d460;
+}

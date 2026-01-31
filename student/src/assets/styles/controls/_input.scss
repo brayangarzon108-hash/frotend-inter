@@ -1,0 +1,123 @@
+@import './../constants/colors';
+@import './../constants/fonts';
+
+.p-inputtext {
+  background-color: $color-white !important;
+  font-size: $font-size-small !important;
+  border: 1px solid $color-gray !important;
+  border-radius: 0px;
+  color: $color-black !important;
+  &:disabled {
+    color: $color-black !important;
+    background-color: $color-grayish-white !important;
+  }
+}
+p-datepicker {
+  &:disabled {
+    background-color: $color-grayish-white !important;
+    color: $color-black !important;
+  }
+}
+.table-input-order > .p-inputtext.p-component.p-inputnumber-input {
+  width: 50px !important;
+}
+.p-autocomplete.p-component.p-inputwrapper.p-disabled.p-inputwrapper-filled {
+  background-color: $color-grayish-white !important;
+  color: $color-black !important;
+}
+p-inputnumber {
+  &[color-indicator='true'][name-value='true']
+    > .p-inputtext.p-component.p-inputnumber-input.p-filled {
+    background-color: $color-green-alpha50 !important;
+    color: $color-black !important;
+  }
+  &[color-indicator='false'][name-value='true']
+    > .p-inputtext.p-component.p-inputnumber-input.p-filled {
+    background-color: $color-red-alpha50 !important;
+    color: $color-black !important;
+  }
+  [name-value='false'] > .p-inputtext.p-component.p-inputnumber-input.p-filled {
+    background-color: transparent !important;
+  }
+  &:disabled {
+    &[color-indicator='true'][name-value='true']
+      > .p-inputtext.p-component.p-inputnumber-input.p-filled {
+      background-color: $color-green-alpha50 !important;
+      color: $color-black !important;
+    }
+    &[color-indicator='false'][name-value='true']
+      > .p-inputtext.p-component.p-inputnumber-input.p-filled {
+      background-color: $color-red-alpha50 !important;
+      color: $color-black !important;
+    }
+    [name-value='false'] > .p-inputtext.p-component.p-inputnumber-input.p-filled {
+      background-color: $color-grayish-white !important;
+      color: $color-black !important;
+    }
+    background-color: $color-grayish-white !important;
+    color: $color-black !important;
+  }
+}
+
+.p-inputtext.p-component.p-inputnumber-input {
+  width: 0px;
+}
+.p-textarea {
+  background-color: $color-white !important;
+  color: $color-black !important;
+  border-radius: 0px;
+  font-size: $font-size-short !important;
+  border: 1px solid #beb7b0 !important;
+  &:disabled {
+    background-color: $color-grayish-white !important;
+    color: $color-black !important;
+  }
+}
+.p-inputtext.p-component.p-password-input.p-filled,
+.p-inputtext.p-component.p-password-input,
+.p-datepicker.p-component.p-inputwrapper.p-inputwrapper-filled
+  > .p-inputtext.p-component.p-datepicker-input.p-filled {
+  width: 100%;
+}
+.p-datepicker {
+  width: 100% !important;
+}
+.p-datepicker-year,
+.p-datepicker-month,
+.p-datepicker-day {
+  color: $color-black !important;
+}
+.p-datepicker-header,
+.p-datepicker-select-month,
+.p-datepicker-select-year,
+.p-datepicker-panel {
+  background-color: $color-white !important;
+  color: $color-black !important;
+}
+p-autocomplete .p-autocomplete.p-component.p-inputwrapper {
+  width: 100% !important;
+}
+.p-inputtext.p-component.p-autocomplete-input {
+  width: 100% !important;
+}
+.p-checkbox-checked .p-checkbox-box {
+  background-color: $color-green !important;
+  color: $color-white !important;
+}
+.p-checkbox-box {
+  background-color: $color-white !important;
+  color: $color-white !important;
+}
+
+.p-fileupload-advanced {
+  border: 1px solid $color-gray-light;
+  border-radius: $color-white;
+  background: $color-white;
+  color: $color-black;
+}
+.p-checkbox.p-disabled .p-checkbox-box {
+  background-color: #ec837c86 !important;
+}
+.p-inputtext.p-component.p-inputmask {
+  width: 100% !important;
+}

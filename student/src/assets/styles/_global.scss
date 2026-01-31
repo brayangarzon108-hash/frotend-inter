@@ -1,0 +1,103 @@
+// Import constants
+@import 'constants/colors';
+@import 'constants/fonts';
+
+// Import controls
+//@import 'controls/accordion';
+@import 'controls/button';
+@import 'controls/input';
+
+@import 'controls/link';
+//@import 'controls/modal';
+//@import 'controls/radio';
+@import 'controls/select';
+
+@import 'controls/toast';
+
+// Import layout
+@import 'layout/accordion';
+@import 'layout/card';
+@import 'layout/dialog';
+@import 'layout/drawer';
+@import 'layout/filters';
+@import 'layout/grid';
+@import 'layout/modal';
+@import 'layout/paginator';
+@import 'layout/panelmenu';
+@import 'layout/table';
+
+@import 'layout/tag';
+@import 'layout/tooltip';
+@import 'layout/spinner';
+@import 'layout/text';
+
+* {
+  font-family: 'Montserrat';
+  scrollbar-color: $color-yellow transparent;
+  scrollbar-width: thin;
+}
+@layer base {
+  html {
+    color-scheme: light !important;
+  }
+}
+:root {
+  //button
+  --p-button-label-font-weight: bold !important;
+  --p-togglebutton-checked-background: $color-yellow !important;
+  //panel-menu
+  --p-panelmenu-panel-background: $color-black !important;
+  --p-panelmenu-panel-border-color: $color-black !important;
+  --p-panelmenu-panel-color: $color-white !important;
+  --p-panelmenu-submenu-icon-color: $color-white !important;
+  --p-panelmenu-panel-padding: 0px !important;
+  //table
+  --p-datatable-header-cell-background: $color-black !important;
+  --p-datatable-header-cell-color: $color-white !important;
+  --p-datatable-body-cell-padding: 0px !important;
+  //tooltip
+  --p-tooltip-background: $color-yellow !important;
+  //select
+  --p-select-border-radius: 0px !important;
+  //paginator
+  --p-paginator-background: transparent !important;
+  --p-paginator-nav-button-selected-background: $color-yellow-alpha80 !important;
+  --p-paginator-nav-button-selected-color: $color-yellow !important;
+  --p-paginator-current-page-report-color: $color-black !important;
+  //popover
+  //--p-popover-arrow-offset: 10.25rem !important;
+  //card
+  --p-card-body-padding: 0px !important;
+  //tag
+  --p-tag-font-size: $font-size-small !important;
+  //spinner
+  --p-progressspinner-color-1: $color-yellow !important;
+  --p-progressspinner-color-2: $color-black !important;
+  --p-progressspinner-color-3: $color-yellow !important;
+  --p-progressspinner-color-4: $color-black !important;
+  //datepicker
+  --p-datepicker-week-day-color: $color-yellow !important;
+  --p-select-disabled-color: $color-black !important;
+  --p-textarea-disabled-color: $color-black !important;
+  //dialog
+  --p-dialog-background: $color-white !important;
+  //badge
+  --p-badge-min-width: 1rem !important;
+  --p-badge-height: 1rem !important;
+  --p-drawer-background: $color-grayish-white !important;
+  --p-overlaybadge-outline-color: $color-white !important;
+  --p-badge-danger-color: $color-white !important;
+  //Notifications
+  --p-avatar-background: transparent !important;
+  --p-overlay-modal-color: $color-black !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --p-ripple-background: $color-white !important;
+    color-scheme: light !important;
+  }
+}
+.pi {
+  font-family: 'primeicons' !important;
+}

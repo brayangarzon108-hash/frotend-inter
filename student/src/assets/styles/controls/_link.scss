@@ -1,0 +1,8 @@
+.link {
+  color: $color-blue-dark;
+  transition: color ease-in-out  0.1s;
+  &:active {
+    color: $color-blue;
+    transition: color ease-in-out  0.1s;
+  }
+}

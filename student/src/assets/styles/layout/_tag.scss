@@ -1,0 +1,21 @@
+@import './../constants/colors';
+@import './../constants/fonts';
+
+.p-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-tag.p-tag-danger {
+  background: $color-red-tag !important;
+  color: $color-red-tag-text !important;
+}
+.p-tag.p-tag-contrast {
+  background: $color-blue-light !important;
+  color: $color-white;
+}
+.p-tag.p-tag-secondary {
+  background: $color-grayish-white !important;
+  color: $color-gray-light;
+}

@@ -1,0 +1,42 @@
+@import './../constants/colors';
+@import './../constants/fonts';
+
+.p-card-title{
+  background-color:$color-black ;
+  color:$color-yellow;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: $font-size-normal;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  >p-button >.p-button-icon-only{
+     color:$color-white;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+    .p-card{
+        width: 56rem !important; /* Sobrescribe otras reglas */
+    }
+    
+}
+@media screen and (max-width: 850px) {
+    .p-card {
+        width: 48rem !important; /* Sobrescribe otras reglas */
+    }
+     
+}
+@media screen and (max-width: 640px) {
+    .p-card {
+        width: 30rem !important; /* Sobrescribe otras reglas */
+    }
+     
+}
+@media (min-width: 300px) and (max-width: 640px) {
+    .p-card {
+        width: 20rem !important; /* Sobrescribe otras reglas */
+    }
+   
+}

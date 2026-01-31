@@ -1,0 +1,117 @@
+@import './../constants/colors';
+@import './../constants/fonts';
+.active-route {
+  background-color: $color-yellow-alpha80 !important;
+  color: $color-white !important;
+  border-right: 5px solid $color-yellow !important;
+}
+.p-panelmenu-item > .p-panelmenu-item-content,
+.p-panelmenu-header > .p-panelmenu-header-content {
+  color: $color-white !important;
+  background-color: $color-black !important;
+  &:hover {
+    color: $color-yellow !important;
+    background-color: $color-black !important;
+  }
+  .p-panelmenu-item-link,
+  .p-panelmenu-header-link {
+    color: $color-white !important;
+    font-size: $font-size-short !important;
+    &:hover {
+      color: $color-yellow !important;
+      background-color: $color-black !important;
+      .p-panelmenu-icon,
+      .p-panelmenu-submenu-icon {
+        color: $color-yellow !important;
+      }
+    }
+    .p-panelmenu-icon,
+    .p-panelmenu-submenu-icon {
+      color: $color-white !important;
+    }
+  }
+}
+.p-panelmenu-item[aria-expanded='true'] > .p-panelmenu-item-content {
+  color: $color-white !important;
+  background-color: $color-yellow-alpha80 !important;
+  border-right: 5px solid $color-yellow !important ;
+  margin: 5px 0;
+}
+.p-panelmenu-item.p-focus > .p-panelmenu-item-content,
+.p-panelmenu-header-active > .p-panelmenu-header-content {
+  color: $color-black !important;
+  background-color: $color-yellow !important;
+  border: 0px !important;
+  .p-panelmenu-item-link,
+  .p-panelmenu-header-link {
+    color: $color-black !important;
+    font-size: $font-size-short !important;
+    &:hover {
+      color: $color-black !important;
+      background-color: $color-yellow !important;
+      .p-panelmenu-icon,
+      .p-panelmenu-submenu-icon {
+        color: $color-yellow !important;
+      }
+    }
+    .p-panelmenu-icon,
+    .p-panelmenu-submenu-icon {
+      color: $color-black !important;
+    }
+  }
+}
+
+.p-panelmenu-item.p-focus > .p-panelmenu-item-content {
+  color: $color-white !important;
+  background-color: $color-yellow-alpha80 !important;
+  border-right: 5px solid $color-yellow !important ;
+  margin: 5px 0;
+  .p-panelmenu-item-link,
+  .p-panelmenu-header-link {
+    color: $color-white !important;
+    font-size: $font-size-short !important;
+    &:hover {
+      color: $color-white !important;
+      background-color: $color-yellow !important;
+      .p-panelmenu-icon,
+      .p-panelmenu-submenu-icon {
+        color: $color-yellow !important;
+      }
+    }
+    .p-panelmenu-icon,
+    .p-panelmenu-submenu-icon {
+      color: $color-white !important;
+    }
+  }
+}
+@media screen and (max-width: 1023px) {
+  .p-panelmenu-panel {
+    width: 11rem !important; /* Sobrescribe otras reglas */
+  }
+  .responsive-button .p-button-label {
+    display: none; /* Oculta el label */
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .p-panelmenu-panel {
+    width: 10rem !important; /* Sobrescribe otras reglas */
+  }
+  .responsive-button .p-button-label {
+    display: none; /* Oculta el label */
+  }
+}
+@media (min-width: 300px) and (max-width: 640px) {
+  .p-panelmenu-panel {
+    width: 12rem !important; /* Sobrescribe otras reglas */
+  }
+  .responsive-button .p-button-label {
+    display: block; /* Oculta el label */
+  }
+  .p-toast.p-component {
+    width: 280px !important;
+  }
+}
+p-panelmenu {
+  overflow: auto;
+}

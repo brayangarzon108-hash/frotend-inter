@@ -1,0 +1,60 @@
+@import './../constants/colors';
+@import './../constants/fonts';
+
+thead,
+.p-datatable-thead {
+  background-color: $color-yellow !important;
+  color: $color-black !important;
+  border-color: #e5e7eb !important;
+}
+.p-datatable-tbody > tr > td {
+  border-color: #e5e7eb !important;
+}
+
+tr {
+  border-color: #e5e7eb !important;
+  height: 40px !important; /* Hace que la fila sea un contenedor flex */
+}
+
+td {
+  background-color: $color-white !important;
+  color: $color-black !important;
+  height: 100%; /* Asegura que las celdas ocupen toda la altura */
+  font-size: $font-size-small !important;
+  padding: 0 5px;
+}
+td > p-table > .p-datatable.p-component > .p-datatable-table-container {
+  background-color: $color-gray-light !important;
+  border-radius: 0px !important;
+}
+.p-paginator-current {
+  color: $color-black !important;
+}
+.p-datatable-table-container {
+  background-color: $color-white !important;
+  border-radius: 10px 10px 0px 0px !important;
+}
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .p-datatable-table-container {
+    height: 316px;
+  }
+}
+@media (max-width: 800px) {
+  th {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1536px) and (max-width: 1820px) {
+  .p-datatable-table-container {
+    height: 600px !important;
+  }
+}
+.table-edit {
+  background-color: $color-yellow !important;
+  color: $color-black !important;
+  height: 40px;
+  border-radius: 10px 10px 0px 0px !important;
+}
+.table-question {
+  border-radius: 10px !important;
+}

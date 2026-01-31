@@ -1,0 +1,11 @@
+@import './../constants/colors';
+@import './../constants/fonts';
+.p-tooltip .p-tooltip-text {
+  background-color: $color-yellow !important;
+  color: $color-black !important;
+  text-align: center;
+  font-size: $font-size-short;
+}
+.p-popover {
+  width: 280px !important;
+}

@@ -1,0 +1,19 @@
+@import './../constants/colors';
+@import './../constants/fonts';
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:$color-background !important; /* Fondo con opacidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Asegúrate de que esté encima de todo */
+
+}
+.p-progressspinner-circle{
+    stroke: $color-yellow !important;  
+}

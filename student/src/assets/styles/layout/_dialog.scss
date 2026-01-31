@@ -1,0 +1,37 @@
+@import './../constants/colors';
+@import './../constants/fonts';
+.p-dialog-title,
+.title {
+  font-weight: bold;
+  font-size: $font-size-large;
+  color: $color-black !important;
+}
+.p-dialog {
+  background-color: $color-white !important;
+}
+
+@media screen and (min-width: 300px) {
+  p-dialog > .pdialog-mask > .p-dialog.p-component {
+    width: 20rem !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  p-dialog > .p-dialog-mask > .p-dialog.p-component {
+    width: 20rem !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  p-dialog > .p-dialog-mask > .p-dialog.p-component {
+    width: 80% !important;
+  }
+}
+.p-dialog-mask {
+  background: $color-black-alpha75 !important;
+}
+.p-image-preview-mask,
+p-image > span > img {
+  width: 50px;
+  height: 100px;
+}
