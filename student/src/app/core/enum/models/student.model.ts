@@ -2,7 +2,13 @@ export interface Student {
   studentId: number;
   fullName: string;
   email: string;
+  programId: number;
   programName: string;
+}
+
+export interface ResponseStudent {
+  countRegister: number;
+  infomationProcess: Student[];
 }
 
 export interface ItemModal {
@@ -36,17 +42,16 @@ export interface Item {
   enabled: boolean;
 }
 
-export interface CatalogModal {
-  catalogId: number;
-  catalogName: string;
-  description: string;
-  userId: string;
-  enabled: boolean;
+export interface CreateStudent {
+  studentId: number;
+  fullName: string;
+  email: string;
+  programId: number;
 }
 
-export interface FormFilter {
-  typeForm: number;
-  nameForm: string;
+export interface Programation {
+  programId: number;
+  name: string;
 }
 
 export interface CatalogFilter {

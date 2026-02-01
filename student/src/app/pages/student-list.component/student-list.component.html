@@ -26,7 +26,7 @@
               severity="warn"
               [text]="true"
               icon="pi pi-search"
-              (onClick)="getCatalog(filterCatalog.value)"
+              (onClick)="getStudent(filterCatalog)"
             />
             <p-button
               [rounded]="true"
@@ -41,7 +41,7 @@
 
       <!-- BOTÓN DERECHA -->
       <p-button
-        label="Crear Catálogo"
+        label="Crear Estudiante"
         icon="pi pi-clipboard"
         iconPos="right"
         severity="warn"
@@ -77,13 +77,13 @@
             style="min-width: 200px; text-align: center"
             class="hidden sm:hidden md:table-cell lg:table-cell"
           >
-            Descripción
+            Email
           </th>
           <th
             style="min-width: 100px; text-align: center"
             class="hidden sm:hidden md:hidden lg:table-cell"
           >
-            Estado
+            Programa perteneciente
           </th>
           <th style="min-width: 150px; text-align: center">Acciones</th>
         </tr>
@@ -91,20 +91,20 @@
       <ng-template #body let-forms>
         <tr>
           <td style="text-align: center" class="hidden sm:hidden md:hidden lg:table-cell">
-            {{ forms.catalogId }}
+            {{ forms.studentId }}
           </td>
           <td style="text-align: center">
-            {{ forms.catalogName }}
+            {{ forms.fullName }}
           </td>
           <td style="text-align: center" class="hidden sm:hidden md:table-cell lg:table-cell">
-            {{ forms.description }}
+            {{ forms.email }}
           </td>
           <td style="text-align: center" class="hidden sm:hidden md:hidden lg:table-cell">
             <div class="md:flex flex-row items-center justify-center">
               <p-tag
                 class="ms-2"
-                [value]="forms.enabled ? 'Activo' : 'Inactivo'"
-                [severity]="forms.enabled ? 'success' : 'danger'"
+                [value]="forms.programName"
+                [severity]="'info'"
               />
             </div>
           </td>

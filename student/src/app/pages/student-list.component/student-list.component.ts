@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { PaginatorModule, PaginatorState } from 'primeng/paginator';
@@ -13,16 +13,17 @@ import {
   Student,
   Catalog,
   ItemModal,
-  CatalogModal,
+  CreateStudent,
   Item,
   CatalogFilter,
+  ResponseStudent,
 } from '../../core/enum/models/student.model';
 import { ApiResponse } from '../../core/enum/response/api-response.model';
 import { TooltipModule } from 'primeng/tooltip';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { StatusCode } from '../../core/enum/response/status-code.enum';
-import { ModalStudentListComponent } from "./modal-student-list/modal-student-list.component";
+import { ModalStudentListComponent } from './modal-student-list/modal-student-list.component';
 
 @Component({
   selector: 'app-student-list',
@@ -40,8 +41,8 @@ import { ModalStudentListComponent } from "./modal-student-list/modal-student-li
     ProgressSpinnerModule,
     FormsModule,
     TooltipModule,
-    ModalStudentListComponent
-],
+    ModalStudentListComponent,
+  ],
   templateUrl: './student-list.component.html',
   styleUrl: './student-list.component.scss',
 })
@@ -49,7 +50,7 @@ export class StudentListComponent implements OnInit {
   typeForm: string = '';
   first: number = 0;
   rows: number = 10;
-  dataCatalog!: CatalogModal | null;
+  dataCatalog!: CreateStudent | null;
   filterCatalog!: FormGroup;
   handleLoading: boolean = false;
   visibilityModal: boolean = true;
@@ -58,8 +59,9 @@ export class StudentListComponent implements OnInit {
   totalRecords: number = 0;
   dynamicCatalogId: number = 0;
   sizeWindow: string = '';
-  formsList: Catalog[] = [];
+  formsList: Student[] = [];
   itemsList: Item[] = [];
+  private cdr: ChangeDetectorRef = inject(ChangeDetectorRef);
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -70,12 +72,12 @@ export class StudentListComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.getCatalog(this.filterCatalog.value);
+    this.getStudent(this.filterCatalog);
   }
 
   clearFilter() {
     this.filterCatalog.patchValue({ nameCatalog: '' });
-    this.getCatalog(this.filterCatalog.value);
+    this.getStudent(this.filterCatalog);
   }
 
   onPageChange(event: PaginatorState) {
@@ -84,7 +86,7 @@ export class StudentListComponent implements OnInit {
   }
 
   // Open Modal Form
-  openModalForm(data: CatalogModal | null, visibility: boolean) {
+  openModalForm(data: CreateStudent | null, visibility: boolean) {
     this.handleCatalogModal = true;
     if (data) {
       this.dataCatalog = data;
@@ -100,22 +102,34 @@ export class StudentListComponent implements OnInit {
 
   closeDialog() {
     this.handleCatalogModal = false;
-    this.getCatalog(this.filterCatalog.value);
+    this.getStudent(this.filterCatalog);
     this.dataCatalog = null;
   }
 
   closeDialogItem() {
     this.handleItemModal = false;
-    this.getCatalog(this.filterCatalog.value);
+    this.getStudent(this.filterCatalog);
   }
 
-  getCatalog(payload: CatalogFilter) {
-    //this.handleLoading = true;
-    this.dynamicService.getStudents(payload.page, payload.pagesize, payload.nameCatalog).subscribe({
-      next: (response: ApiResponse<Catalog[]>) => {
+  getStudent(filter: FormGroup) {
+    this.handleLoading = true;
+    const data: CatalogFilter = {
+      ...filter.value,
+      page: this.first,
+      pagesize: this.rows,
+    };
+    this.dynamicService.getStudents(data.page, data.pagesize, data.nameCatalog).subscribe({
+      next: (response: ApiResponse<ResponseStudent>) => {
         if (response.status === StatusCode.OK) {
-          this.formsList = response.data;
-          this.totalRecords = response.data.length;
+          this.formsList = response.data.infomationProcess;
+          this.totalRecords = response.data.countRegister;
+          this.handleLoading = false;
+          this.cdr.detectChanges();
+        } else {
+          this.formsList = [];
+          this.totalRecords = 0;
+          this.handleLoading = false;
+          this.cdr.detectChanges();
         }
       },
       complete: () => {

@@ -1,5 +1,5 @@
 //const packageJson = require('../../package.json');
-const HOST = 'https://localhost:7256/api/proxy/api';
+const HOST = 'https://localhost:44380/api';
 const enviromentsName = "Ambiente de Pruebas"
 export const enviroments = {
   msalConfiguration: {

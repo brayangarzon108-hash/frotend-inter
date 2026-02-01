@@ -3,9 +3,10 @@ import {
   Student,
   Catalog,
   ItemModal,
-  CatalogModal,
+  CreateStudent,
   Item,
   CatalogFilter,
+  Programation,
 } from '../../../core/enum/models/student.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -39,7 +40,8 @@ import { StatusCode } from '../../../core/enum/response/status-code.enum';
 })
 export class ModalStudentListComponent implements OnInit {
   @Input() visible: boolean = false;
-  data = input.required<CatalogModal | null>();
+  programList: Programation[] = [];
+  data = input.required<CreateStudent | null>();
   visibility = input.required<boolean>();
   handleLoadingUpsert: boolean = false;
   modeModal: boolean = false;
@@ -50,18 +52,17 @@ export class ModalStudentListComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dynamicCatalogService: StudentService,
-    private messageService: MessageService
+    private messageService: MessageService,
   ) {
     this.upsertCatalog = this.fb.group({
-      catalogId: [0],
-      catalogName: [null, Validators.required],
-      description: [null, Validators.required],
-      userId: [0],
-      enabled: [false, Validators.required],
+      studentId: [0],
+      fullName: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      programId: [0, Validators.required],
     });
   }
   ngOnInit(): void {
-
+    this.getProgram();
     if (this.data()) {
       const data = this.data() ?? {};
       this.upsertCatalog.patchValue(data);
@@ -78,35 +79,74 @@ export class ModalStudentListComponent implements OnInit {
     this.close.emit(true);
     this.visible = false;
   }
-  upsertDynamicCatalog(data: CatalogModal) {
-    const previousValue = data.enabled;
-
-    const payload: CatalogModal = {
-      catalogId: data.catalogId,
-      catalogName: data.catalogName,
-      description: data.description,
-      userId: data.userId,
-      enabled: data.enabled,
+  upsertDynamicCatalog(data: CreateStudent) {
+    const payload: CreateStudent = {
+      studentId: data.studentId,
+      fullName: data.fullName,
+      email: data.email,
+      programId: data.programId,
     };
     this.handleLoadingUpsert = true;
-    this.dynamicCatalogService.upsertDynamicCatalogs(null).subscribe({
-      next: (response: ApiResponse<string>) => {
+
+    if (payload.studentId === 0) {
+      this.dynamicCatalogService.upsertDynamicStudent(payload).subscribe({
+        next: (response: ApiResponse<string>) => {
+          if (response.status === StatusCode.OK) {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Proceso exitoso',
+              detail: `Catalogo ${payload.studentId === 0 ? 'creado' : 'actualizado'} existosamente`,
+              life: 3000,
+            });
+            this.closeDialog();
+          } else {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Proceso erroneo',
+              detail: response.message,
+              life: 3000,
+            });
+          }
+        },
+        complete: () => {
+          this.handleLoadingUpsert = false;
+        },
+      });
+    } else {
+      this.dynamicCatalogService.updateDynamicStudent(payload).subscribe({
+        next: (response: ApiResponse<string>) => {
+          if (response.status === StatusCode.OK) {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Proceso exitoso',
+              detail: `Catalogo ${payload.studentId === 0 ? 'creado' : 'actualizado'} existosamente`,
+              life: 3000,
+            });
+            this.closeDialog();
+          } else {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Proceso erroneo',
+              detail: response.message,
+              life: 3000,
+            });
+          }
+        },
+        complete: () => {
+          this.handleLoadingUpsert = false;
+        },
+      });
+    }
+  }
+
+  getProgram() {
+    this.handleLoadingUpsert = true;
+    this.dynamicCatalogService.getProgramation().subscribe({
+      next: (response: ApiResponse<Programation[]>) => {
         if (response.status === StatusCode.OK) {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Proceso exitoso',
-            detail: `Catalogo ${payload.catalogId === 0 ? 'creado' : 'actualizado'} existosamente`,
-            life: 3000,
-          });
-          this.closeDialog();
+          this.programList = response.data;
         } else {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Proceso erroneo',
-            detail: response.message,
-            life: 3000,
-          });
-          this.tempEnabled = previousValue;
+          this.programList = [];
         }
       },
       complete: () => {
