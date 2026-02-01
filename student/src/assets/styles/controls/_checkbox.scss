@@ -1,0 +1,15 @@
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+
+.p-radiobutton-checked .p-radiobutton-box {
+  border-color: $color-blue-dark !important;
+  background: $color-white !important;
+}
+
+.p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {
+  background: $color-blue-dark !important;
+}
+.p-checkbox-checked .p-checkbox-box {
+  border-color: $color-blue-dark !important;
+  background: $color-blue-dark !important;
+}

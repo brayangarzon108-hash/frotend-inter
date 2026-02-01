@@ -1,0 +1,47 @@
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+
+.background-login {
+  /* Asegura que la imagen siempre use el centro como ancla */
+  background-position: top center;
+  /* Evita que el fondo se mueva al hacer scroll en el formulario */
+  background-attachment: fixed;
+  background-image: url('../../images/background-login.png');
+}
+
+/* Si quieres que en móvil se vea más de la familia y menos del fondo */
+@media (max-width: 768px) {
+  .background-login {
+    background-image: url('../../images/background-login.png'); /* Opcional: versión móvil */
+    background-position: 35% center; /* Desplaza la imagen para centrar a las personas */
+  }
+}
+.background-reset,
+.background-register {
+  background-image: url('../../images/background-register1.png');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.background-layout {
+  background-image: url('../../images/background-home.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+@media (max-width: 1024px) {
+  .background-layout {
+    background-image: url('../../images/background-home-responsive.png');
+  }
+}
+.bg-item-assitance {
+  background-color: $color-green-light;
+}
+.bg-blue-dark {
+  background-color: $color-white !important;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: $color-blue-dark !important;
+    color: $color-white !important;
+  }
+}

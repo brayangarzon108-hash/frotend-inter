@@ -1,0 +1,68 @@
+<div class="card flex justify-center">
+  <p-toast />
+  <p-dialog
+    [header]="modeModal ? 'Actualizar Catálogo' : 'Crear Catálogo'"
+    [modal]="true"
+    [(visible)]="visible"
+    (onHide)="closeDialog()"
+    [style]="{ width: '25rem' }">
+    <form [formGroup]="upsertCatalog">
+      <div class="flex flex-col items-center my-3">
+        <div class="flex flex-col mb-2">
+          <label class="label-filters">Nombre del catálogo</label>
+          <input
+            pInputText
+            autocomplete="off"
+            formControlName="catalogName"
+            class="w-full md:w-56"
+            placeholder="Ingrese el nombre " />
+          @if (
+            upsertCatalog.get('catalogName')?.hasError('required') &&
+            upsertCatalog.get('catalogName')?.touched
+          ) {
+            <span class="text-xs text-red-700 font-semibold">Campo requerido</span>
+          }
+        </div>
+
+        <div class="flex flex-col my-2">
+          <label class="label-filters">Descripción</label>
+          <input
+            pInputText
+            autocomplete="off"
+            formControlName="description"
+            class="w-full md:w-56"
+            placeholder="Ingrese la descripción" />
+          @if (
+            upsertCatalog.get('description')?.hasError('required') &&
+            upsertCatalog.get('description')?.touched
+          ) {
+            <span class="text-xs text-red-700 font-semibold">Campo requerido</span>
+          }
+        </div>
+        <div class="flex flex-col w-56">
+          <label class="label-filters">Estado</label>
+          <div class="flex flex-row items-center">
+            <p-toggleswitch formControlName="enabled" />
+            <p-tag
+              class="mx-2"
+              [value]="this.upsertCatalog.get('enabled')?.value ? 'Activo' : 'Inactivo'"
+              [severity]="this.upsertCatalog.get('enabled')?.value ? 'success' : 'danger'" />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-2" [ngClass]="{ hidden: !visibility() }">
+        <p-button
+          class="p-confirmdialog-reject-button"
+          label="Cancelar"
+          severity="secondary"
+          (onClick)="closeDialog()" />
+        <p-button
+          class="p-confirmdialog-accept-button"
+          [disabled]="upsertCatalog.invalid || handleLoadingUpsert"
+          [label]="modeModal ? 'Actualizar' : 'Crear'"
+          (onClick)="upsertDynamicCatalog(upsertCatalog.value)" />
+      </div>
+    </form>
+  </p-dialog>
+</div>

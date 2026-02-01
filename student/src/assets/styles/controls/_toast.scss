@@ -1,0 +1,32 @@
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+
+.p-message-sm .p-message-text {
+  font-size: 0.65rem !important;
+}
+.p-message-text {
+  font-size: 0.8rem !important;
+  font-family: 'Poppins-Medium' !important;
+}
+
+.p-message-info {
+  background: #95cddf !important;
+  color: $color-blue-dark !important;
+}
+.p-tooltip-text {
+  font-size: 0.8rem !important; /* 16px. Ajuste este valor (ej. 14px o 0.8rem) */
+}
+// .p-toast-summary,
+// .p-toast-detail {
+//   font-family: 'Poppins-SemiBold' !important;
+//  // color: $color-white !important;
+// }
+
+// .p-toast-message-error {
+//   background: $color-red !important;
+//   //color: $color-white !important;
+// }
+
+// .p-toast-message-success .p-toast-detail {
+//  // color: #136c2b !important;
+// }

@@ -1,37 +1,26 @@
-@import './../constants/colors';
-@import './../constants/fonts';
-.p-dialog-title,
-.title {
-  font-weight: bold;
-  font-size: $font-size-large;
-  color: $color-black !important;
-}
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+
 .p-dialog {
-  background-color: $color-white !important;
+  background: $color-white-alpha90 !important;
 }
-
-@media screen and (min-width: 300px) {
-  p-dialog > .pdialog-mask > .p-dialog.p-component {
-    width: 20rem !important;
+.update-data .p-dialog {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.p-overlay-mask {
+  background: $color-background !important;
+}
+.services-funeral {
+  .p-overlay-mask {
+    background: #f84747b0 !important;
   }
-}
-
-@media screen and (max-width: 640px) {
-  p-dialog > .p-dialog-mask > .p-dialog.p-component {
-    width: 20rem !important;
+  .p-dialog {
+    border-radius: 32px !important;
+    border: none !important;
+    .p-dialog-header {
+      padding: 0 !important;
+    }
   }
-}
-
-@media (min-width: 640px) and (max-width: 1024px) {
-  p-dialog > .p-dialog-mask > .p-dialog.p-component {
-    width: 80% !important;
-  }
-}
-.p-dialog-mask {
-  background: $color-black-alpha75 !important;
-}
-.p-image-preview-mask,
-p-image > span > img {
-  width: 50px;
-  height: 100px;
 }

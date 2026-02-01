@@ -1,50 +1,52 @@
 $color-white: #ffffff;
-$color-grayish-white: #eaecef;
-$color-gray-light: #aeaeae;
-$color-gray: #beb7b0;
+$color-grayish-white: #f6f6f6;
+$color-gray-light: #dadada;
+$color-gray: #707070;
+$color-gray-white: #f5f5f5;
 $color-blue-light: #00beff;
-$color-blue: #3470ae;
+$color-blue-light-hover: #0a87ff;
+$color-blue-sky: #e9effa;
 $color-blue-dark: #005388;
-$color-yellow: #f7d460;
-$color-yellow-disabled: #b09c66;
-$color-orange: #ffad09;
-$color-orange-dark: #F4B400;
-
-$color-red: #e52929;
-$color-green: #10b981;
-$color-green-tag: #d1fae5;
-$color-green-tag-text: #047857;
-$color-red-tag: #fee2e2;
-$color-red-tag-text: #b91c1c;
+$color-blue-dark-hover: #0a6ba9;
+$color-blue-tab: #8dd5f3;
+$color-blue: #acbee0;
+$color-yellow: #f5d13a;
+$color-yellow-dark: #f6d836;
+$color-yellow-dark-hover: #ebc701;
+$color-yellow-hover: #d6c40b;
+$color-orange-dark: #ffd582;
+$color-orange: #fea85d;
+$color-gold-disable: #dac59a;
+$color-red: #c94242;
+$color-red-hover: #e33c3c;
+$color-red-text: #c94343;
+$color-red-disable: #c57b7b;
+$color-lima: #1d8b45;
+$color-green: #86bd00;
+$color-green-btn: #22b358;
+$color-green-btn-hover: #189e4a;
+$color-green-light: #42c973;
+$color-green-hover: #33a250;
+$color-green-disable: #84c591;
 $color-beige: #e9c387;
-$color-black: #000;
-$color-black-dark: #111111;
-$color-background: #0000006e;
+$color-black: #101820;
+$color-black-card: #2b323a;
+
+$color-background: #005388a6;
+$color-background-red: #f84747b0;
 
 $color-white-alpha25: #{$color-white}40;
-$color-white-alpha80: #{$color-white}80;
+$color-white-alpha50: #{$color-white}80;
 $color-white-alpha75: #{$color-white}C0;
+$color-white-alpha80: #{$color-white}CC;
+$color-white-alpha90: #{$color-white}E6;
 
-$color-yellow-alpha25: #{$color-yellow}40;
-$color-yellow-alpha80: #{$color-yellow}80;
-$color-yellow-alpha75: #{$color-yellow}C0;
+$color-blue-tab-alpha38: #{$color-blue-tab}38;
 
 $color-blue-alpha25: #{$color-blue}40;
 $color-blue-alpha50: #{$color-blue}80;
 $color-blue-alpha75: #{$color-blue}C0;
 
-$color-blue-dark-alpha25: #{$color-blue-dark}40;
-$color-blue-dark-alpha50: #{$color-blue-dark}80;
-$color-blue-dark-alpha75: #{$color-blue-dark}C0;
-
 $color-black-alpha25: #{$color-black}40;
 $color-black-alpha50: #{$color-black}80;
-$color-black-alpha75: #{$color-black}8C;
-
-$color-red-alpha25: #{$color-red}40;
-$color-red-alpha50: #{$color-red}80;
-$color-red-alpha75: #{$color-red}8C;
-
-$color-green-alpha25: #{$color-green}40;
-$color-green-alpha50: #{$color-green}80;
-$color-green-alpha75: #{$color-green}8C;
+$color-black-alpha75: #{$color-black}C0;

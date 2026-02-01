@@ -1,18 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'assets/styles/global'; // Importa tu archivo global de estilos
-@import "primeicons/primeicons.css"; // Importa los estilos de PrimeIcons
+/* Todas las directivas @use deben ir primero */
+@use './assets/styles/global' as *;
+@use 'tailwindcss' as *;
 
-@layer tailwind-base, primeng, tailwind-utilities;
+/* Tailwind se importa con @tailwind, no con @use */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@layer tailwind-base {
-  @tailwind base; // Incluye la base de Tailwind
-}
-
-@layer tailwind-components {
-  @tailwind components; // Incluye los componentes de Tailwind
-
-}
-
-@layer tailwind-utilities {
-  @tailwind utilities; // Incluye las utilidades de Tailwind
-}
+/* Archivos CSS normales se importan con @import */
+@import 'primeicons/primeicons.css';

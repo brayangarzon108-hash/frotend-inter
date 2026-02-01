@@ -1,34 +1,27 @@
-@import './../constants/colors';
-@import './../constants/fonts';
-p-multiselect,
-p-select {
-  height: 35.5px !important;
-  font-size: $font-size-small !important;
-  border: 1px solid $color-gray !important;
-  background-color: $color-white !important;
-  border-radius: 0px;
-  color: $color-black !important;
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+.p-select {
+  height: 50px;
+  border-radius: 5px 5px 0px 0px !important;
+  border: none !important;
+  border-bottom: 1px solid $color-blue-dark !important;
+  width: 100%;
+  @media (width >= 64rem) and (width <= 80rem) {
+    height: 45px !important;
+  }
 }
-.p-select.p-disabled .p-select-label,
-.p-select.p-disabled,
-.p-multiselect.p-disabled .p-multiselect-label,
-.p-multiselect.p-disabled {
-  background-color: $color-grayish-white !important;
-  color: $color-black !important;
-}
-.p-select-option,
-.p-select-overlay,
 .p-select-label {
-  background-color: $color-white !important;
-  color: $color-black !important;
+  font-size: clamp(16px, 0.8vw, 20px) !important;
 }
-.p-select-option.p-select-option-selected.p-focus {
-  background-color: $color-green-tag !important;
+.p-select-panel {
+  max-width: 100vw; /* Evita que se salga de la pantalla */
 }
-.p-multiselect-option,
-.p-multiselect-overlay,
-.p-multiselect-label,
-.p-multiselect-label-container {
-  background-color: $color-white !important;
-  color: $color-black !important;
+
+/* Ajuste para las opciones individuales */
+.p-select-item {
+  white-space: nowrap; /* No permite saltos de línea */
+  overflow: hidden; /* Oculta lo que sobra */
+  text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+  display: block;
+  width: 100%;
 }

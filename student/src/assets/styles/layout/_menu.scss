@@ -1,0 +1,13 @@
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+
+.p-menu {
+  background: transparent !important;
+  color: $color-white !important;
+  border: none !important;
+}
+.p-menu-item-content:hover {
+  background: #005cbb3b !important;
+  color: $color-white !important;
+  border-radius: 29px;
+}

@@ -1,0 +1,41 @@
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+.title {
+  color: $color-blue-dark;
+  font-family: 'Poppins-Medium';
+}
+.platform {
+  color: $color-blue-light !important;
+  font-family: 'Poppins-Bold' !important;
+}
+.subtitle {
+  color: $color-blue-dark !important;
+  font-family: 'Poppins-Bold' !important;
+}
+.advice {
+  color: $color-blue-dark;
+}
+.subtitle-menu {
+  font-family: 'Poppins-SemiBold' !important;
+  color: $color-white;
+}
+.emergency {
+  color: $color-red;
+  font-family: 'Poppins-Bold' !important;
+}
+.label-card {
+  color: $color-blue-dark;
+  font-family: 'Poppins-SemiBold' !important;
+}
+
+.empty-message {
+  color: $color-blue;
+  font-family: 'Poppins-SemiBold' !important;
+}
+.font-bold {
+  font-family: 'Poppins-Bold' !important;
+}
+font,
+p {
+  font-size: small;
+}

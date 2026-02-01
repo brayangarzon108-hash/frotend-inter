@@ -8,7 +8,6 @@ import { EndPointRoute } from '../../core/enum/models/endPoints/endPoint.enum';
 
 @Injectable({ providedIn: 'root' })
 export class StudentService {
-
   constructor(private http: HttpClient) {}
 
   getStudents(page: number, pageSize: number, search?: string) {
@@ -19,6 +18,14 @@ export class StudentService {
           urlpath: `${EndPointRoute.ALL_CATALOGS_FILTER}?nameCatalog=${search}`,
         },
       },
+    );
+  }
+
+  // Insert or Update Catalogs
+  upsertDynamicCatalogs(payload: Catalog[] | null) {
+    return this.http.post<ApiResponse<string>>(
+      `${enviroments.API_PUBLIC}${EndPointRoute.UPSERT_CATALOG}`,
+      payload,
     );
   }
 }

@@ -1,0 +1,22 @@
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+.p-floatlabel {
+  font-size: clamp(14px, 0.5vw, 20px);
+  @media (width >= 64rem) and (width <= 80rem) {
+    height: 2.4rem;
+  }
+}
+
+.p-floatlabel-in .p-inputtext {
+  // padding-top: 4% !important;
+}
+
+.p-floatlabel-in .p-select-label {
+  //   padding-top: 9% !important;
+  @media (width >= 64rem) and (width <= 80rem) {
+    // padding-top: 6% !important;
+  }
+}
+
+.label-check {
+}

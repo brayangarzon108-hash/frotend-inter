@@ -1,42 +1,60 @@
-@import './../constants/colors';
-@import './../constants/fonts';
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
 
-.p-card-title{
-  background-color:$color-black ;
-  color:$color-yellow;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  font-size: $font-size-normal;
-  font-weight: bold;
-  text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  >p-button >.p-button-icon-only{
-     color:$color-white;
+.card {
+  @apply rounded-4xl;
+  background-color: $color-white-alpha90;
+  box-shadow: 0px 3px 12px #00000029;
+}
+
+.card-login-mobile {
+  @apply rounded-4xl;
+  background-color: $color-white-alpha80;
+  box-shadow: 0px 3px 12px #00000029;
+}
+
+.card-affiliation {
+  box-shadow: 0px 3px 12px #00000029;
+}
+
+.card-assistance {
+  background-color: $color-gray-white !important;
+}
+
+.header-affiliations {
+  background-color: #acbee0 !important;
+}
+
+.header {
+  &-affiliations {
+    background-color: #acbee0;
+  }
+  &-detail {
+    background-color: $color-blue-dark;
   }
 }
 
-@media screen and (max-width: 1024px) {
-    .p-card{
-        width: 56rem !important; /* Sobrescribe otras reglas */
+.certification-card {
+  @apply flex flex-row items-center justify-center space-x-2 rounded-[33px]  lg:min-w-xs lg:max-w-xs xl:min-w-sm xl:max-w-sm min-h-[104px] max-h-[200px]  cursor-pointer;
+  &-beneficiaries {
+    background-color: $color-blue-dark;
+    color: $color-white;
+    &:hover {
+      background-color: $color-blue-dark-hover;
     }
-    
-}
-@media screen and (max-width: 850px) {
-    .p-card {
-        width: 48rem !important; /* Sobrescribe otras reglas */
+  }
+  &-insurance {
+    background-color: $color-blue-light;
+    color: $color-white;
+    &:hover {
+      background-color: $color-blue-light-hover;
     }
-     
-}
-@media screen and (max-width: 640px) {
-    .p-card {
-        width: 30rem !important; /* Sobrescribe otras reglas */
+  }
+  &-expenses {
+    background-color: $color-yellow-dark;
+    color: $color-blue-dark;
+    &:hover {
+      background-color: $color-yellow-dark-hover;
     }
-     
-}
-@media (min-width: 300px) and (max-width: 640px) {
-    .p-card {
-        width: 20rem !important; /* Sobrescribe otras reglas */
-    }
-   
+  }
 }

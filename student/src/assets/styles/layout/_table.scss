@@ -1,60 +1,35 @@
-@import './../constants/colors';
-@import './../constants/fonts';
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
 
-thead,
-.p-datatable-thead {
-  background-color: $color-yellow !important;
-  color: $color-black !important;
-  border-color: #e5e7eb !important;
-}
-.p-datatable-tbody > tr > td {
-  border-color: #e5e7eb !important;
-}
-
-tr {
-  border-color: #e5e7eb !important;
-  height: 40px !important; /* Hace que la fila sea un contenedor flex */
+.p-datatable-thead > tr > th {
+  background: $color-blue-dark !important;
+  color: $color-white !important;
+  &:first-child {
+    border-top-left-radius: 30px !important;
+  }
+  &:last-child {
+    border-top-right-radius: 30px !important;
+  }
 }
 
-td {
-  background-color: $color-white !important;
-  color: $color-black !important;
-  height: 100%; /* Asegura que las celdas ocupen toda la altura */
-  font-size: $font-size-small !important;
-  padding: 0 5px;
-}
-td > p-table > .p-datatable.p-component > .p-datatable-table-container {
-  background-color: $color-gray-light !important;
-  border-radius: 0px !important;
-}
-.p-paginator-current {
-  color: $color-black !important;
+.history .p-datatable-thead > tr > th {
+  background: $color-blue-dark !important;
+  color: $color-white !important;
+  &:first-child {
+    border-top-left-radius: 0px !important;
+  }
+  &:last-child {
+    border-top-right-radius: 0px !important;
+  }
 }
 .p-datatable-table-container {
-  background-color: $color-white !important;
-  border-radius: 10px 10px 0px 0px !important;
+  border-radius: 30px !important;
 }
-@media (min-width: 1280px) and (max-width: 1535px) {
-  .p-datatable-table-container {
-    height: 316px;
-  }
+.p-datatable-tbody > tr:last-child {
+  border-bottom-right-radius: 30px !important;
+  border-bottom-left-radius: 30px !important;
 }
-@media (max-width: 800px) {
-  th {
-    font-size: 15px;
-  }
-}
-@media (min-width: 1536px) and (max-width: 1820px) {
-  .p-datatable-table-container {
-    height: 600px !important;
-  }
-}
-.table-edit {
-  background-color: $color-yellow !important;
-  color: $color-black !important;
-  height: 40px;
-  border-radius: 10px 10px 0px 0px !important;
-}
-.table-question {
-  border-radius: 10px !important;
+
+.history .p-datatable-table-container {
+  border-radius: 0px 0px 30px 30px !important;
 }

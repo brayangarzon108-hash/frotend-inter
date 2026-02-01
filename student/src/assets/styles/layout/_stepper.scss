@@ -1,0 +1,14 @@
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+
+.p-step-title {
+  font-size: 12px;
+}
+
+.p-step-header {
+  flex-direction: column;
+  align-items: center !important;
+}
+.p-steplist {
+  margin: auto !important;
+}

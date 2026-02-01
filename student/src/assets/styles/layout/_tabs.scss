@@ -1,0 +1,24 @@
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+
+.p-tablist-tab-list {
+  background: transparent !important;
+}
+
+.p-tab {
+  background: $color-blue-tab !important;
+  border-radius: 14px 14px 0px 0px;
+  font-family: 'Poppins-Bold' !important;
+  color: $color-blue-dark !important;
+  border: none !important;
+  box-shadow: 0px 3px 6px #00000029;
+  padding: 11px 27px !important;
+}
+.p-tab-active {
+  background: $color-yellow !important;
+  border: none !important;
+}
+.p-tabpanels {
+  box-shadow: 0px 3px 12px #00000029;
+  border-radius: 0px 30px 30px 30px;
+}

@@ -22,6 +22,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { StatusCode } from '../../core/enum/response/status-code.enum';
+import { ModalStudentListComponent } from "./modal-student-list/modal-student-list.component";
 
 @Component({
   selector: 'app-student-list',
@@ -39,8 +40,8 @@ import { StatusCode } from '../../core/enum/response/status-code.enum';
     ProgressSpinnerModule,
     FormsModule,
     TooltipModule,
-    //ModalItemsComponent,
-  ],
+    ModalStudentListComponent
+],
   templateUrl: './student-list.component.html',
   styleUrl: './student-list.component.scss',
 })
@@ -109,7 +110,7 @@ export class StudentListComponent implements OnInit {
   }
 
   getCatalog(payload: CatalogFilter) {
-    this.handleLoading = true;
+    //this.handleLoading = true;
     this.dynamicService.getStudents(payload.page, payload.pagesize, payload.nameCatalog).subscribe({
       next: (response: ApiResponse<Catalog[]>) => {
         if (response.status === StatusCode.OK) {

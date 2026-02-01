@@ -1,100 +1,111 @@
-@import './../constants/colors';
-@import './../constants/fonts';
-p-sortIcon {
-  color: $color-yellow !important;
-}
-
-.button-table > .p-button-icon-only {
-  border-radius: 100% !important;
-}
-
-.p-button-icon-only {
-  //border-radius: 0px !important;
-  height: 36px;
-  color: $color-black;
-  &:hover {
-    background-color: $color-grayish-white;
-  }
-  &:disabled {
-    color: $color-red-tag-text !important;
-    background-color: transparent;
-  }
-}
-
-.p-button-warn {
-  color: $color-black !important;
-  background-color: $color-yellow !important;
-  border-color: $color-yellow !important;
-  font-weight: bold !important;
-}
-.p-button-contrast,
-.p-button-text.p-button-contrast {
+@use '../constants/colors' as *;
+@use '../constants/fonts' as *;
+.filter .p-button-icon-only.p-button-rounded,
+.p-button {
+  border-radius: 29px !important;
+  background: $color-blue-dark !important;
+  border: 1px solid $color-blue-dark !important;
+  font-size: clamp(9px, 0.6vw, 20px) !important;
   color: $color-white !important;
-  border-color: $color-black !important;
-  background-color: $color-black !important;
-  border-color: none !important;
-  font-weight: bold !important;
+  width: 100% !important;
   &:hover {
-    color: $color-yellow !important;
+    background: $color-yellow !important;
+    border-color: $color-yellow !important ;
+    border: 1px solid $color-yellow !important;
+    color: $color-blue-dark !important;
+    font-family: 'Poppins-Bold' !important;
   }
 }
-.p-toggleswitch.p-component {
-  display: block !important;
+.button-payment .p-button {
+  background: $color-yellow-dark !important;
+  border: 1px solid $color-yellow !important;
+  font-size: clamp(9px, 0.6vw, 20px) !important;
+  color: $color-blue-dark;
+  &:hover {
+    background: $color-yellow-dark-hover !important;
+  }
 }
 
-.p-togglebutton.p-component.p-togglebutton-checked {
-  background-color: $color-yellow !important;
+.p-button-secondary {
+  background: transparent !important;
+  border: 1px solid $color-blue-light !important;
+  color: $color-blue-dark !important;
+  &:hover {
+    background: $color-blue-light !important;
+    border: 1px solid $color-blue-light !important;
+    color: $color-blue-dark;
+  }
 }
 
-.p-togglebutton.p-component {
-  background-color: $color-yellow-alpha80 !important;
+.p-button-info {
+  background: transparent !important;
+  border: 1px solid $color-blue-dark !important;
+  color: $color-blue-dark !important;
+  &:hover {
+    background: $color-blue-dark !important;
+    color: $color-white !important;
+    border: 1px solid $color-blue-dark !important;
+  }
 }
 
-.p-confirmdialog-accept-button > .p-button {
-  background-color: $color-yellow !important;
-  border-color: $color-yellow !important;
-  color: $color-black !important;
-}
-.p-confirmdialog-reject-button > .p-button {
-  border-color: $color-red !important;
-  color: $color-red !important;
-}
-.responsive-button .p-button-label {
-  display: none; /* Oculta el label */
-}
-
-button > .pi {
-  font-size: 1rem !important;
-}
-td > .p-button-icon-only {
-  height: 0px !important;
-}
-.p-button-label {
-  font-size: $font-size-small;
-}
-
-.p-button-icon-only > .pi.pi-times-circle {
-  color: $color-red !important;
-}
-.p-button-secondary,
-.p-toggleswitch-handle {
-  background-color: $color-white !important;
-}
-
-.p-ripple.p-button.p-component.p-button-icon-only.p-button-secondary.p-button-rounded.p-button-text {
-  background-color: $color-grayish-white !important;
-}
-.button.filters > .p-ripple.p-button.p-component.p-button-icon-only.p-button-rounded.p-button-text {
-  color: $color-black !important;
-  background-color: $color-yellow !important;
-}
-.p-ripple.p-splitbutton-dropdown.p-button-icon-only.p-button.p-component,
-.p-ripple.p-splitbutton-button.p-button.p-component {
-  background-color: transparent !important;
+.p-button-help {
+  background: transparent !important;
+  color: $color-blue-dark !important;
   border: none !important;
-  height: auto !important;
-  color: $color-black !important;
+  &:hover {
+    background: transparent !important;
+    border: 1px solid transparent !important;
+  }
 }
-.p-tieredmenu.p-component.p-tieredmenu-overlay {
-  width: 100% !important;
+.p-button-danger {
+  background: $color-red !important;
+  color: $color-white !important;
+  border: none !important;
+  &:hover {
+    background: $color-red-hover !important;
+    border: none !important;
+    color: $color-white !important;
+  }
+}
+.p-button-warn {
+  font-size: clamp(11px, 0.8vw, 20px) !important;
+  padding-block: 0.5rem !important;
+  background: $color-blue-light !important;
+  color: $color-white !important;
+  border: none !important;
+  &:hover {
+    background: #0a87ff !important;
+    border: none !important;
+    color: $color-white !important;
+    font-family: 'Poppins' !important;
+  }
+}
+
+.p-button-label {
+  font-weight: normal !important;
+}
+.button-back {
+  background-color: $color-blue-dark;
+  color: $color-blue-sky;
+}
+.p-button-icon-only.p-button-rounded {
+  border-radius: 50% !important;
+  height: var(--p-button-icon-only-width);
+  background: transparent !important;
+  border: none !important;
+  color: #005388 !important;
+}
+
+.p-button.p-component.p-fileupload-choose-button {
+  background: $color-green-btn !important;
+  border: none !important;
+  padding-block: 0.6rem !important;
+  color: $color-white !important;
+  &:hover {
+    background: $color-green-btn-hover !important;
+    border: none !important;
+  }
+}
+.pi {
+  font-size: 0.7rem !important;
 }
