@@ -1,13 +1,19 @@
 <div class="flex flex-col items-stretch scrollbar-thin">
   <p-toast />
-
+<p-dialog
+    [header]="'Estudiantes por Materias'"
+    [modal]="true"
+    [(visible)]="visible"
+    (onHide)="closeDialog()"
+    [style]="{ width: '50rem' }"
+  >
   <!-- WRAPPER -->
   <div class="w-full max-w-7xl mx-auto">
     <!-- HEADER -->
     <div class="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4">
       <!-- IZQUIERDA -->
       <div class="flex flex-col gap-4">
-        <div class="title-module text-3xl sm:text-xl md:text-[1.8em]">Lista de Estudiantes</div>
+        <div class="title-module text-3xl sm:text-xl md:text-[1.8em]">Lista de Estudiantes - {{ this.data()?.nameSubjectId }} - {{ this.data()?.nameStudentId }} </div>
 
         <form [formGroup]="filterCatalog" class="flex flex-row items-end gap-3 filters">
           <div class="flex flex-col w-[220px]">
@@ -39,15 +45,6 @@
         </form>
       </div>
 
-      <!-- BOTÓN DERECHA -->
-      <p-button
-        label="Crear Estudiante"
-        icon="pi pi-clipboard"
-        iconPos="right"
-        severity="warn"
-        class="self-start lg:self-end"
-        (onClick)="openModalForm(null, true)"
-      />
     </div>
 
     <!-- TOTAL -->
@@ -85,7 +82,6 @@
           >
             Programa perteneciente
           </th>
-          <th style="min-width: 150px; text-align: center">Acciones</th>
         </tr>
       </ng-template>
       <ng-template #body let-forms>
@@ -104,56 +100,11 @@
               <p-tag class="ms-2" [value]="forms.programName" [severity]="'info'" />
             </div>
           </td>
-          <td style="text-align: center">
-            <div class="flex justify-center flex-wrap gap-4 mb-6">
-              <p-button
-                [rounded]="true"
-                [text]="true"
-                icon="pi pi-eye"
-                (onClick)="openModalForm(forms, false)"
-                pTooltip="Visualizacion"
-                class="inline-block sm:inline-block md:inline-block lg:hidden"
-              />
-              <p-button
-                [rounded]="true"
-                [text]="true"
-                icon="pi pi-pen-to-square"
-                pTooltip="Edición"
-                tooltipPosition="left"
-                (onClick)="openModalForm(forms, true)"
-              />
-              <p-button
-                [rounded]="true"
-                [text]="true"
-                icon="pi pi-list"
-                pTooltip="Inscripción de materias"
-                tooltipPosition="left"
-                (onClick)="openModalItem(forms, true)"
-              />
-            </div>
-          </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
-
-  @if (handleCatalogModal) {
-    <app-modal-student-list
-      [data]="dataCatalog"
-      [visible]="handleCatalogModal"
-      [visibility]="visibilityModal"
-      (close)="closeDialog()"
-    ></app-modal-student-list>
-  }
-
-  @if (handleItemModal) {
-    <app-subject-list
-      [visible]="handleItemModal"
-      [visibility]="visibilityModal"
-      [data]="dataCatalog"
-      (close)="closeDialogItem()"
-    ></app-subject-list>
-  }
+  </p-dialog>
 
   @if (handleLoading) {
     <div class="spinner-overlay">

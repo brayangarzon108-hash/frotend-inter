@@ -30,16 +30,12 @@ export interface Catalog {
   enabled: boolean;
 }
 
-export interface Item {
-  item_id: number | string;
-  item_name: string;
-  item_value: string;
-  catalog_id: number;
-  createdDate: string;
-  updateDate: string;
-  createdBy: number;
-  updatedBy: number;
-  enabled: boolean;
+export interface ListStudentSubject {
+  studentSubjectId: number;
+  subjectId: number;
+  nameSubjectId: string;
+  nameStudentId: number;
+  studentId: number;
 }
 
 export interface CreateStudent {
@@ -49,9 +45,20 @@ export interface CreateStudent {
   programId: number;
 }
 
+export interface CreateSubjectStudent {
+  studentId: number;
+  subjectId: number;
+}
+
 export interface Programation {
   programId: number;
   name: string;
+}
+
+export interface Subject {
+  subjectId: number;
+  nameSubject: string;
+  teacher: string;
 }
 
 export interface CatalogFilter {

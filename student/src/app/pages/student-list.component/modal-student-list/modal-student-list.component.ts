@@ -1,11 +1,6 @@
 import { Component, Input, input, OnInit, output } from '@angular/core';
 import {
-  Student,
-  Catalog,
-  ItemModal,
   CreateStudent,
-  Item,
-  CatalogFilter,
   Programation,
 } from '../../../core/enum/models/student.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -46,7 +41,6 @@ export class ModalStudentListComponent implements OnInit {
   handleLoadingUpsert: boolean = false;
   modeModal: boolean = false;
   close = output<boolean>();
-  itemsList: Item[] = [];
   upsertCatalog!: FormGroup;
   tempEnabled: boolean = false;
   constructor(

@@ -7,6 +7,9 @@ import {
   ResponseStudent,
   Programation,
   CreateStudent,
+  Subject,
+  CreateSubjectStudent,
+  ListStudentSubject,
 } from '../enum/models/student.model';
 import { ApiResponse } from '../enum/response/api-response.model';
 import { enviroments } from '../../core/environments/enviroments';
@@ -27,6 +30,39 @@ export class StudentService {
     );
   }
 
+  getStudentsSubjectName(page: number, pageSize: number, studentId: number, subjectId: number, search?: string) {
+    return this.http.get<ApiResponse<ResponseStudent>>(
+      `${enviroments.API_PUBLIC}${EndPointRoute.ALL_STUDENTS_SUBJECT_NAME}?studentId=${studentId}&page=${page}&pageSize=${pageSize}&subjectId=${subjectId}&nameStudent=${search}`,
+      {
+        headers: {
+          urlpath: `${EndPointRoute.ALL_STUDENTS_SUBJECT_NAME}?studentId=${studentId}&page=${page}&pageSize=${pageSize}&subjectId=${subjectId}&nameStudent=${search}`,
+        },
+      },
+    );
+  }
+
+  getStudentsSubject(studentId: number) {
+    return this.http.get<ApiResponse<ListStudentSubject[]>>(
+      `${enviroments.API_PUBLIC}${EndPointRoute.ALL_STUDENTS_SUBJECT}?studentId=${studentId}`,
+      {
+        headers: {
+          urlpath: `${EndPointRoute.ALL_STUDENTS_SUBJECT}?studentId=${studentId}`,
+        },
+      },
+    );
+  }
+
+  deleteStudentsSubject(studentId: number) {
+    return this.http.delete<ApiResponse<ResponseStudent>>(
+      `${enviroments.API_PUBLIC}${EndPointRoute.DELETE_STUDENTS_SUBJECT}/${studentId}`,
+      {
+        headers: {
+          urlpath: `${EndPointRoute.DELETE_STUDENTS_SUBJECT}/${studentId}`,
+        },
+      },
+    );
+  }
+
   getProgramation() {
     return this.http.get<ApiResponse<Programation[]>>(
       `${enviroments.API_PUBLIC}${EndPointRoute.ALL_PROGRAMATION}`,
@@ -38,7 +74,18 @@ export class StudentService {
     );
   }
 
-  // Insert or Update Catalogs
+  getSubject() {
+    return this.http.get<ApiResponse<Subject[]>>(
+      `${enviroments.API_PUBLIC}${EndPointRoute.ALL_SUBJECT}`,
+      {
+        headers: {
+          urlpath: `${EndPointRoute.ALL_SUBJECT}`,
+        },
+      },
+    );
+  }
+
+  // Insert or Update Student
   upsertDynamicStudent(payload: CreateStudent) {
     return this.http.post<ApiResponse<string>>(
       `${enviroments.API_PUBLIC}${EndPointRoute.UPSERT_STUDENTS}`,
@@ -46,7 +93,15 @@ export class StudentService {
     );
   }
 
-  //  Update Catalogs
+    // Insert or Update Student relation Subject
+  upsertDynamicSubject(payload: CreateSubjectStudent) {
+    return this.http.post<ApiResponse<string>>(
+      `${enviroments.API_PUBLIC}${EndPointRoute.UPSERT_STUDENTS_SUBJECTS}`,
+      payload,
+    );
+  }
+
+  //  Update Student
   updateDynamicStudent(payload: CreateStudent) {
     return this.http.put<ApiResponse<string>>(
       `${enviroments.API_PUBLIC}${EndPointRoute.UPDATE_STUDENTS}/${payload.studentId}`,
