@@ -1,4 +1,4 @@
 export enum RoutesApp {
-  LOGIN = 'login',
+  SUBJECTLIST = 'subject-list',
   STUDENTLIST = 'student-list',
 }

@@ -1,5 +1,6 @@
 <div class="card flex justify-center">
   <p-toast />
+  <!--
   <p-dialog
     [header]="'Inscripción de Materias'"
     [modal]="true"
@@ -7,31 +8,37 @@
     (onHide)="closeDialog()"
     [style]="{ width: '50rem' }"
   >
-    <!-- WRAPPER -->
-    <div class="w-full max-w-7xl mx-auto">
-      <!-- HEADER -->
-      <div class="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4">
-        <!-- IZQUIERDA -->
-        <div class="flex flex-col gap-4">
-          <div class="title-module text-2xl sm:text-xl md:text-[1.8em]">
-            Estudiante - {{ this.data()?.fullName }}
-          </div>
+  -->
+  <!-- WRAPPER -->
+  <div class="w-full max-w-7xl mx-auto">
+    <!-- HEADER -->
+    <div class="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4">
+      <!-- IZQUIERDA -->
+      <div class="flex flex-col gap-4">
+        <div class="title-module text-2xl sm:text-xl md:text-[1.8em]">
+          Estudiante - {{ this.nameStudent }}
         </div>
-
-        <!-- BOTÓN DERECHA -->
-        <p-button
-          label="Adicionar Materia"
-          icon="pi pi-clipboard"
-          iconPos="right"
-          severity="warn"
-          class="self-start lg:self-end"
-          (onClick)="openModalForm(this.data()?.programId, true)"
-        />
       </div>
 
-      <!-- TOTAL -->
-      <div class="mt-6 font-semibold text-right">Total de registros: {{ totalRecords }}</div>
+      <!-- BOTÓN DERECHA -->
+      <p-button
+        label="Adicionar Materia"
+        icon="pi pi-clipboard"
+        iconPos="right"
+        severity="warn"
+        class="self-start lg:self-end"
+        (onClick)="openModalForm(this.studentId, true)"
+      />
+    </div>
 
+    <!-- TOTAL -->
+    <div class="mt-6 font-semibold text-right">Total de registros: {{ totalRecords }}</div>
+
+    @if (totalRecords === 0) {
+      <div class="mx-[4%] pt-6 md:ms-10 lg:ms-8 px-3 w-4/5 sm:w-4/5 md:w-11/12 lg:w-auto">
+        No hay registros con los filtros seleccionado.
+      </div>
+    } @else {
       <!-- TABLA -->
       <p-table
         class="mt-4"
@@ -51,6 +58,7 @@
               ID
             </th>
             <th style="min-width: 150px; text-align: center">Materia</th>
+            <th style="min-width: 150px; text-align: center">Creditos</th>
             <th style="min-width: 150px; text-align: center">Acciones</th>
           </tr>
         </ng-template>
@@ -61,6 +69,9 @@
             </td>
             <td style="text-align: center">
               {{ forms.nameSubjectId }}
+            </td>
+            <td style="text-align: center">
+              {{ forms.credits }}
             </td>
             <td style="text-align: center">
               <div class="flex justify-center flex-wrap gap-4 mb-6">
@@ -93,8 +104,11 @@
           </tr>
         </ng-template>
       </p-table>
-    </div>
+    }
+  </div>
+  <!--  
   </p-dialog>
+  -->
 
   @if (handleCatalogModal) {
     <app-modal-subject-list

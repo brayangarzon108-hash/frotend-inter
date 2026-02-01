@@ -36,6 +36,7 @@ export interface ListStudentSubject {
   nameSubjectId: string;
   nameStudentId: number;
   studentId: number;
+  credits: number;
 }
 
 export interface CreateStudent {

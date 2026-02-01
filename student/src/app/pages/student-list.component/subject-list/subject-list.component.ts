@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, inject, input, Input, OnInit, output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { PaginatorModule, PaginatorState } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
@@ -15,7 +15,6 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { StatusCode } from '../../../core/enum/response/status-code.enum';
-import { Dialog } from 'primeng/dialog';
 import { ModalSubjectList } from './modal-subject-list/modal-subject-list';
 import { ConfirmDialogModule, ConfirmDialog } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -37,7 +36,6 @@ import { ConsultStudentSubjectComponent } from './consult-student-subject.compon
     ProgressSpinnerModule,
     FormsModule,
     TooltipModule,
-    Dialog,
     ModalSubjectList,
     ConsultStudentSubjectComponent,
     ConfirmDialog,
@@ -48,7 +46,7 @@ import { ConsultStudentSubjectComponent } from './consult-student-subject.compon
 })
 export class SubjectListComponent implements OnInit {
   @Input() visible: boolean = false;
-  data = input.required<CreateStudent | null>();
+  //data = input.required<CreateStudent | null>();
   visibility = input.required<boolean>();
   close = output<boolean>();
   typeForm: string = '';
@@ -64,19 +62,30 @@ export class SubjectListComponent implements OnInit {
   sizeWindow: string = '';
   formsList: ListStudentSubject[] = [];
   private cdr: ChangeDetectorRef = inject(ChangeDetectorRef);
+  studentId: number = 0;
+  nameStudent: string = '';
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private dynamicService: StudentService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
+    private route: ActivatedRoute,
   ) {}
   ngOnInit(): void {
-    this.getStudentsSubject(this.data()!.studentId);
+    this.route.queryParams.subscribe((params) => {
+      if (params['idStudent']) {
+        this.studentId = parseInt(decodeURIComponent(params['idStudent']));
+        this.getStudentsSubject(this.studentId);
+      }
+      if (params['nameStudent']) {
+        this.nameStudent = decodeURIComponent(params['nameStudent']);
+      }
+    });
   }
 
   clearFilter() {
-    this.getStudentsSubject(this.data()!.studentId);
+    this.getStudentsSubject(this.studentId);
   }
 
   onPageChange(event: PaginatorState) {
@@ -104,7 +113,7 @@ export class SubjectListComponent implements OnInit {
   closeDialog() {
     this.handleCatalogModal = false;
     this.handleLoading = false;
-    this.getStudentsSubject(this.data()!.studentId);
+    this.getStudentsSubject(this.studentId);
     this.dataCatalog = null;
     this.close.emit(true);
     this.visible = false;
@@ -113,7 +122,7 @@ export class SubjectListComponent implements OnInit {
   closeDialogItem() {
     this.handleItemModal = false;
     this.handleLoading = false;
-    this.getStudentsSubject(this.data()!.studentId);
+    this.getStudentsSubject(this.studentId);
     this.dataCatalog = null;
   }
 
@@ -165,7 +174,7 @@ export class SubjectListComponent implements OnInit {
         summary: 'Eliminado',
         detail: 'Registro eliminado correctamente',
       });
-      this.getStudentsSubject(this.data()!.studentId);
+      this.getStudentsSubject(this.studentId);
     });
   }
 }

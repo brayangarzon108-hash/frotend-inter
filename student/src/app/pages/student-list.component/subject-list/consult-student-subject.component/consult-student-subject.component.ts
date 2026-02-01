@@ -95,6 +95,7 @@ export class ConsultStudentSubjectComponent implements OnInit {
   }
 
   getStudent(filter: FormGroup) {
+    debugger;
     this.handleLoading = true;
     const data: CatalogFilter = {
       ...filter.value,

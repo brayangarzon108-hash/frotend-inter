@@ -23,6 +23,7 @@ import { StatusCode } from '../../core/enum/response/status-code.enum';
 import { ModalStudentListComponent } from './modal-student-list/modal-student-list.component';
 import { SubjectListComponent } from './subject-list/subject-list.component';
 import { debug } from 'console';
+import { RoutesApp } from '../../core/enum/routes/routes.enum';
 
 @Component({
   selector: 'app-student-list',
@@ -98,6 +99,12 @@ export class StudentListComponent implements OnInit {
     if (data) {
       this.dataCatalog = data;
     }
+    this.router.navigate(['/' + RoutesApp.SUBJECTLIST], {
+      queryParams: {
+        idStudent: this.dataCatalog?.studentId,
+        nameStudent: this.dataCatalog?.fullName,
+      },
+    });
     this.visibilityModal = visibility;
     this.handleItemModal = true;
   }
