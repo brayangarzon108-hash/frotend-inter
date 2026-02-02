@@ -1,7 +1,7 @@
 <div class="card flex justify-center">
   <p-toast />
   <p-dialog
-    [header]="modeModal ? 'Actualizar Materia' : 'Adicionar materia'"
+    [header]="'Adicionar materia'"
     [modal]="true"
     [(visible)]="visible2"
     (onHide)="closeDialog()"
@@ -50,7 +50,7 @@
         <p-button
           class="p-confirmdialog-accept-button"
           [disabled]="upsertCatalog.invalid || handleLoadingUpsert"
-          [label]="modeModal ? 'Actualizar' : 'Crear'"
+          [label]="'Crear'"
           (onClick)="upsertDynamicSubject(upsertCatalog.value)"
         />
       </div>
